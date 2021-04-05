@@ -1,0 +1,49 @@
+//
+//  CharactersModels.swift
+//  RickAndMorty
+//
+//  Created by Mazzoni, Michel Rodrigo on 05/04/21.
+//  Copyright (c) 2021 Michel Mazzoni. All rights reserved.
+//
+
+import UIKit
+
+enum Characters {
+    
+    enum CharacterList {
+        struct Request {
+            
+        }
+        
+        struct Response {
+            
+            struct Success {
+                let characterList : [CharactersResult]
+            }
+            
+            struct Failure {
+                let error: String
+            }
+            
+        }
+        
+        struct ViewModel {
+            
+            struct CharactersDisplay {
+                let id: Int
+                let gender: String
+                let url: String
+            }
+            
+            struct Success {
+                let items: [CharactersDisplay]
+            }
+            
+            struct Failure {
+                let message: String
+            }
+            
+        }
+    }
+    
+}
