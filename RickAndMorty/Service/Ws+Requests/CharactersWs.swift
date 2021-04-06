@@ -10,13 +10,13 @@ import Foundation
 enum RouterCharacters: RouterEnum {
     
     case getCharactersList
-    case getCharacterDetails
+    case getCharacterDetails(id: Int)
     
     var method: HTTPMethod {
         switch self {
         case .getCharactersList:
             return .get
-        case .getCharacterDetails:
+        case .getCharacterDetails(_):
             return .get
         }
     }
@@ -25,14 +25,14 @@ enum RouterCharacters: RouterEnum {
         switch self {
         case .getCharactersList:
             return "/api/character/"
-        case .getCharacterDetails:
-            return "/api/character/"
+        case .getCharacterDetails(let id):
+            return "/api/character/\(id)"
         }
     }
     
     var urlParams: [String : String]? {
         switch self {
-        case .getCharacterDetails:
+        case .getCharacterDetails(_):
             return nil
         case .getCharactersList:
             return nil
@@ -41,7 +41,7 @@ enum RouterCharacters: RouterEnum {
     
     var body: [String : Any]? {
         switch self {
-        case .getCharacterDetails:
+        case .getCharacterDetails(_):
             return nil
         case .getCharactersList:
             return nil
@@ -50,7 +50,7 @@ enum RouterCharacters: RouterEnum {
     
     var headers: [String : String]? {
         switch self {
-        case .getCharacterDetails:
+        case .getCharacterDetails(_):
             return nil
         case .getCharactersList:
             return nil

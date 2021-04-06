@@ -12,13 +12,13 @@ enum CharactersDetails {
 
     enum CharactersDetailsModel {
         struct Request {
-            
+            var id: Int
         }
         
         struct Response {
             
             struct Success {
-                
+                let characterDetails: CharactersDetailsResult
             }
             
             struct Failure {
@@ -30,11 +30,17 @@ enum CharactersDetails {
         struct ViewModel {
             
             struct CharactersDetailsDisplay {
+                var name: String
+                var status: String
+                var species: String
+                var type: String
+                var gender: String
+                var image: String
                 
             }
             
             struct Success {
-                
+                let items: CharactersDetailsDisplay
             }
             
             struct Failure {

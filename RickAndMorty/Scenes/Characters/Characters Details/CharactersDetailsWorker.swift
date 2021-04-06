@@ -9,6 +9,11 @@
 import UIKit
 
 class CharactersDetailsWorker {
-
+    func getCharacterDetails(router: RouterEnum, completion: @escaping (Result<CharactersDetailsResult>) -> ()) {
+        
+        Webservice.shared.request(router: router) { (result) in
+            completion(result)
+        }
+    }
     
 }
