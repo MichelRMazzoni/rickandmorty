@@ -10,7 +10,7 @@ import UIKit
 
 class CharactersWorker {
 
-    func getCharacters(router: Router, completion: @escaping (Result<CharactersResponse>) -> ()) {
+    func getCharacters(router: RouterEnum, completion: @escaping (Result<CharactersResponse>) -> ()) {
 
         Webservice.shared.request(router: router) { (result) in
             completion(result)

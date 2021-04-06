@@ -23,7 +23,7 @@ class CharactersInteractor: CharactersBusinessLogic, CharactersDataStore {
     let worker = CharactersWorker()
 
     func getCharacters(request: Characters.CharacterList.Request) {
-        worker.getCharacters(router: Router.getCharacterDetails) { (result: Result<CharactersResponse>) in
+        worker.getCharacters(router: RouterCharacters.getCharactersList) { (result: Result<CharactersResponse>) in
             switch result {
             case .success(let characterList):
                 let response = Characters.CharacterList.Response.Success(characterList: characterList.results ?? [])

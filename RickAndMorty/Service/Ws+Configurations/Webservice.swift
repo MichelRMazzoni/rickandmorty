@@ -46,7 +46,7 @@ class Webservice {
         session = URLSession(configuration: config)
     }
     
-    func request<T: Decodable>(router: Router, completion: @escaping (Result<T>) -> ()) {
+    func request<T: Decodable>(router: RouterEnum, completion: @escaping (Result<T>) -> ()) {
         do {
             let task = try session.dataTask(with: router.makeUrlRequest()) { (data, urlResponse, error) in
                 DispatchQueue.main.async {
