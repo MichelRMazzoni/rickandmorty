@@ -48,7 +48,7 @@ class Webservice {
     
     func request<T: Decodable>(router: Router, completion: @escaping (Result<T>) -> ()) {
         do {
-            let task = try session.dataTask(with: router.request()) { (data, urlResponse, error) in
+            let task = try session.dataTask(with: router.makeUrlRequest()) { (data, urlResponse, error) in
                 DispatchQueue.main.async {
                     if let error = error {
                         completion(Result<T>.failure(error: error))

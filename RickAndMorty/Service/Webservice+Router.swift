@@ -30,46 +30,46 @@ enum Router {
     private var path: String {
         switch self {
         case .getCharactersList:
-            return "/api/character"
+            return "/api/character/"
         case .getCharacterDetails:
-            return "/api/character"
+            return "/api/character/"
         }
     }
     
-    private var urlParams: [String: String] {
+    private var urlParams: [String: String]? {
         switch self {
         case .getCharactersList:
-            return [:]
+            return nil
         case .getCharacterDetails:
-            return [:]
+            return nil
         }
     }
     
-    private var body: [String: Any] {
+    private var body: [String: Any]? {
         switch self {
         case .getCharactersList:
-            return [:]
+            return nil
         case .getCharacterDetails:
-            return [:]
+            return nil
         }
     }
     
-    private var headers: [String: String] {
+    private var headers: [String: String]? {
         switch self {
         case .getCharactersList:
-            return [:]
+            return nil
         case .getCharacterDetails:
-            return [:]
+            return nil
         }
     }
     
-    func request() throws -> URLRequest {
+    func makeUrlRequest() throws -> URLRequest {
 
         var components = URLComponents()
-        components.scheme = "https"
+        components.scheme = urlScheme
         components.host = baseURLString
         components.path = path
-        components.queryItems = urlParams.map { URLQueryItem(name: $0.key, value: $0.value) }
+        components.queryItems = urlParams?.map { URLQueryItem(name: $0.key, value: $0.value) }
         
         guard let url = components.url else {
             throw ErrorType.parseUrlFail
@@ -77,17 +77,17 @@ enum Router {
         
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue.uppercased()
-        request.httpBody = try? JSONSerialization.data(withJSONObject: body)
-        
+        if body?.count ?? 0 > 0 {
+            request.httpBody = try? JSONSerialization.data(withJSONObject: body as Any)
+        }
+        if headers?.count ?? 0 > 0 {
+            headers?.forEach({ (key, value) in
+                request.addValue(value, forHTTPHeaderField: key)
+            })
+        }
         
         print("REQUEST = \(request)")
-        
-        switch self {
-        case .getCharactersList:
-            return request
-            
-        case .getCharacterDetails:
-            return request
-        }
+
+        return request
     }
 }

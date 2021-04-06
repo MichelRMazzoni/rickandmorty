@@ -7,4 +7,6 @@
 
 import Foundation
 
+let urlScheme     = "https"
 let baseURLString = "rickandmortyapi.com"
+
