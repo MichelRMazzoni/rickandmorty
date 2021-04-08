@@ -23,6 +23,13 @@ class CharactersDetailsViewController: UIViewController {
     var interactor: CharactersDetailsBusinessLogic?
     var router: (NSObjectProtocol & CharactersDetailsRoutingLogic & CharactersDetailsDataPassing)?
     
+    //MARK: Loading Properties
+    let loadingIndicator: ProgressView = {
+        let progress = ProgressView(colors: [.red, .systemGreen, .systemBlue], lineWidth: 5)
+        progress.translatesAutoresizingMaskIntoConstraints = false
+        return progress
+    }()
+    
     //MARK: - Constructor
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -37,11 +44,28 @@ class CharactersDetailsViewController: UIViewController {
     //MARK: - Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUILoading()
         getCharacterDetails()
         
     }
     
+    func setupUILoading() {
+        self.view.addSubview(loadingIndicator)
+
+        NSLayoutConstraint.activate([
+            loadingIndicator.centerXAnchor
+                .constraint(equalTo: self.view.centerXAnchor),
+            loadingIndicator.centerYAnchor
+                .constraint(equalTo: self.view.centerYAnchor),
+            loadingIndicator.widthAnchor
+                .constraint(equalToConstant: 50),
+            loadingIndicator.heightAnchor
+                .constraint(equalTo: self.loadingIndicator.widthAnchor)
+        ])
+    }
+    
     func getCharacterDetails(){
+        Indicator.sharedInstance.showIndicator()
         let request = CharactersDetails.CharactersDetailsModel.Request(id: 147)
         self.interactor?.getCharacterDetails(request: request)
     }

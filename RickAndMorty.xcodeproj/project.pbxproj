@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E096B06261E9CB70025E192 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E096B05261E9CB70025E192 /* ProgressView.swift */; };
+		3E096B0B261E9CD40025E192 /* ProgressShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E096B0A261E9CD40025E192 /* ProgressShapeLayer.swift */; };
+		3E096B10261E9CF70025E192 /* StrokeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E096B0F261E9CF70025E192 /* StrokeAnimation.swift */; };
+		3E096B15261E9D0E0025E192 /* RotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E096B14261E9D0E0025E192 /* RotationAnimation.swift */; };
+		3E096B1A261E9D240025E192 /* StrokeColorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E096B19261E9D240025E192 /* StrokeColorAnimation.swift */; };
+		3E096B1F261EA34E0025E192 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E096B1E261EA34E0025E192 /* Indicator.swift */; };
 		F8022102261D0BC700213F84 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8022101261D0BC700213F84 /* Extensions.swift */; };
 		F8829D33261CBDA7009A13CE /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8829D32261CBDA7009A13CE /* Router.swift */; };
 		F8829D3B261CC054009A13CE /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8829D3A261CC054009A13CE /* HTTPMethod.swift */; };
@@ -57,6 +63,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E096B05261E9CB70025E192 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		3E096B0A261E9CD40025E192 /* ProgressShapeLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressShapeLayer.swift; sourceTree = "<group>"; };
+		3E096B0F261E9CF70025E192 /* StrokeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeAnimation.swift; sourceTree = "<group>"; };
+		3E096B14261E9D0E0025E192 /* RotationAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationAnimation.swift; sourceTree = "<group>"; };
+		3E096B19261E9D240025E192 /* StrokeColorAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeColorAnimation.swift; sourceTree = "<group>"; };
+		3E096B1E261EA34E0025E192 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
 		F8022101261D0BC700213F84 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F8829D32261CBDA7009A13CE /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		F8829D3A261CC054009A13CE /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -120,9 +132,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E096B03261E9C910025E192 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3E096B04261E9C9C0025E192 /* Loading */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3E096B04261E9C9C0025E192 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				3E096B05261E9CB70025E192 /* ProgressView.swift */,
+				3E096B0A261E9CD40025E192 /* ProgressShapeLayer.swift */,
+				3E096B0F261E9CF70025E192 /* StrokeAnimation.swift */,
+				3E096B14261E9D0E0025E192 /* RotationAnimation.swift */,
+				3E096B19261E9D240025E192 /* StrokeColorAnimation.swift */,
+				3E096B1E261EA34E0025E192 /* Indicator.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
 		F8022100261D0BB800213F84 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3E096B03261E9C910025E192 /* Components */,
 				F8022101261D0BC700213F84 /* Extensions.swift */,
 			);
 			path = Resources;
@@ -429,22 +463,28 @@
 				F89874B6261B66F200AFBDD1 /* CharactersConfigurator.swift in Sources */,
 				F89874B1261B66F200AFBDD1 /* CharactersRouter.swift in Sources */,
 				F89874BF261B688200AFBDD1 /* Characters.swift in Sources */,
+				3E096B0B261E9CD40025E192 /* ProgressShapeLayer.swift in Sources */,
 				F88D2810261CB36E002B0CEE /* CharactersDetailsWorker.swift in Sources */,
 				F88D2813261CB36E002B0CEE /* CharactersDetailsViewController.swift in Sources */,
+				3E096B10261E9CF70025E192 /* StrokeAnimation.swift in Sources */,
 				F898749E261B65C000AFBDD1 /* CharactersWs.swift in Sources */,
 				F88D2816261CB36E002B0CEE /* CharactersDetailsConfigurator.swift in Sources */,
 				F89874B4261B66F200AFBDD1 /* CharactersInteractor.swift in Sources */,
 				F89874B0261B66F200AFBDD1 /* CharactersWorker.swift in Sources */,
 				F8987460261B62E600AFBDD1 /* AppDelegate.swift in Sources */,
+				3E096B1F261EA34E0025E192 /* Indicator.swift in Sources */,
 				F8829D33261CBDA7009A13CE /* Router.swift in Sources */,
 				F8987499261B652600AFBDD1 /* Webservice.swift in Sources */,
+				3E096B1A261E9D240025E192 /* StrokeColorAnimation.swift in Sources */,
 				F89874B2261B66F200AFBDD1 /* CharactersModels.swift in Sources */,
+				3E096B15261E9D0E0025E192 /* RotationAnimation.swift in Sources */,
 				F89874A3261B65F400AFBDD1 /* Webservice+Constants.swift in Sources */,
 				F8022102261D0BC700213F84 /* Extensions.swift in Sources */,
 				F8829D3B261CC054009A13CE /* HTTPMethod.swift in Sources */,
 				F88D2811261CB36E002B0CEE /* CharactersDetailsRouter.swift in Sources */,
 				F8987462261B62E600AFBDD1 /* SceneDelegate.swift in Sources */,
 				F89874B3261B66F200AFBDD1 /* CharactersViewController.swift in Sources */,
+				3E096B06261E9CB70025E192 /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
