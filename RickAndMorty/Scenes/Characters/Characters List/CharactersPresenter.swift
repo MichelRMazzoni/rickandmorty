@@ -21,9 +21,15 @@ class CharactersPresenter: CharactersPresentationLogic {
     func successGetCharacters(response: Characters.CharacterList.Response.Success) {
         let item = response.characterList.compactMap {
             Characters.CharacterList.ViewModel.CharactersDisplay(
-                id: $0.id ?? -1,
+                id: $0.id ?? 0,
+                name: $0.name ?? "",
+                status: $0.status ?? "",
+                species: $0.species ?? "",
+                type: $0.type ?? "",
                 gender: $0.gender ?? "",
-                url: $0.url ?? "")
+                image: $0.image ?? "",
+                origin: $0.origin?.name ?? ""
+                )
         }
         let vm = Characters.CharacterList.ViewModel.Success(items: item)
         self.viewController?.successGetCharacters(response: vm)

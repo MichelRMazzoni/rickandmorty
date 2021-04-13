@@ -16,7 +16,6 @@ protocol CharactersDetailsDisplayLogic: class {
 extension CharactersDetailsViewController: CharactersDetailsDisplayLogic {
     
     func successGetCharacterDetails(response: CharactersDetails.CharactersDetailsModel.ViewModel.Success) {
-        setupLabels(response: response)
         Indicator.sharedInstance.hideIndicator()
     }
     
@@ -32,13 +31,5 @@ extension CharactersDetailsViewController: CharactersDetailsDisplayLogic {
         labelGender.text = response.items.gender
         labelImage.text = response.items.image
         imageCharacter.loadImage(withUrl: response.items.image)
-    }
-    
-    func showLoading() {
-        loadingIndicator.isAnimating = true
-    }
-    
-    func hideLoading() {
-        loadingIndicator.isAnimating = false
     }
 }

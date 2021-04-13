@@ -18,7 +18,7 @@ enum CharactersDetails {
         struct Response {
             
             struct Success {
-                let characterDetails: CharactersDetailsResult
+                let characterDetails: CharactersResult
             }
             
             struct Failure {

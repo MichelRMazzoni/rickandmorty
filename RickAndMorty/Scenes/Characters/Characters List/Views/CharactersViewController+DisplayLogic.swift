@@ -16,16 +16,13 @@ protocol CharactersDisplayLogic: class {
 extension CharactersViewController: CharactersDisplayLogic {
     
     func successGetCharacters(response: Characters.CharacterList.ViewModel.Success) {
-        setupLabels(response: response)
+        list = response.items
+        tableView.reloadData()
+        Indicator.sharedInstance.hideIndicator()
     }
     
     func failureGetCharacters(response: Characters.CharacterList.ViewModel.Failure) {
         print(response)
     }
-    
-    func setupLabels(response: Characters.CharacterList.ViewModel.Success) {
-        labelId.text = "\(response.items[0].id)"
-        labelName.text = response.items[0].url
-        labelGender.text = response.items[0].gender
-    }
+
 }

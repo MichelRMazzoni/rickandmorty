@@ -23,7 +23,7 @@ class CharactersDetailsInteractor: CharactersDetailsBusinessLogic, CharactersDet
     let worker = CharactersDetailsWorker()
     
     func getCharacterDetails(request: CharactersDetails.CharactersDetailsModel.Request) {
-        worker.getCharacterDetails(router: RouterCharacters.getCharacterDetails(id: request.id)) { (result: Result<CharactersDetailsResult>) in
+        worker.getCharacterDetails(router: RouterCharacters.getCharacterDetails(id: request.id)) { (result: Result<CharactersResult>) in
             switch result {
             case .success(let characterDetails):
                 let response = CharactersDetails.CharactersDetailsModel.Response.Success(characterDetails: characterDetails)

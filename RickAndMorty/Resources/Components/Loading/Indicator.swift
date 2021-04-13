@@ -19,8 +19,8 @@ public class Indicator {
         blurImg.frame = UIScreen.main.bounds
         blurImg.backgroundColor = UIColor.black
         blurImg.isUserInteractionEnabled = true
-        blurImg.alpha = 0.5
-        indicator.style = .whiteLarge
+        blurImg.alpha = 0.8
+        indicator.style = UIActivityIndicatorView.Style.large
         indicator.center = blurImg.center
         indicator.startAnimating()
         indicator.color = .green

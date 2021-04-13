@@ -10,13 +10,12 @@ import UIKit
 
 class CharactersViewController: UIViewController {
     //MARK: - Outlets
-    @IBOutlet weak var labelId: UILabel!
-    @IBOutlet weak var labelName: UILabel!
-    @IBOutlet weak var labelGender: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     // Var's
     var interactor: CharactersBusinessLogic?
     var router: (NSObjectProtocol & CharactersRoutingLogic & CharactersDataPassing)?
+    var list = [Characters.CharacterList.ViewModel.CharactersDisplay]()
 
     // Constructor
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -32,10 +31,15 @@ class CharactersViewController: UIViewController {
     // Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: "CharactersListTableViewCell", bundle: nil), forCellReuseIdentifier: "charactersListCell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         getCharacters()
     }
     
     func getCharacters() {
+        Indicator.sharedInstance.showIndicator()
         let request = Characters.CharacterList.Request()
         self.interactor?.getCharacters(request: request)
     }
