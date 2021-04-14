@@ -18,7 +18,7 @@ extension CharactersViewController: CharactersDisplayLogic {
     func successGetCharacters(response: Characters.CharacterList.ViewModel.Success) {
         list = response.items
         tableView.reloadData()
-        Indicator.sharedInstance.hideIndicator()
+        LoadingView.sharedInstance.hideIndicator()
     }
     
     func failureGetCharacters(response: Characters.CharacterList.ViewModel.Failure) {

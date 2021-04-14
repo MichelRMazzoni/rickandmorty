@@ -38,6 +38,7 @@ enum Characters {
                 let gender: String
                 let image: String
                 let origin: String
+                let firstEpisodeSeen: String
             }
             
             struct Success {

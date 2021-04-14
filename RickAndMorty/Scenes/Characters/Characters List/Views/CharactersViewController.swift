@@ -16,6 +16,7 @@ class CharactersViewController: UIViewController {
     var interactor: CharactersBusinessLogic?
     var router: (NSObjectProtocol & CharactersRoutingLogic & CharactersDataPassing)?
     var list = [Characters.CharacterList.ViewModel.CharactersDisplay]()
+    var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
 
     // Constructor
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -39,7 +40,7 @@ class CharactersViewController: UIViewController {
     }
     
     func getCharacters() {
-        Indicator.sharedInstance.showIndicator()
+        LoadingView.sharedInstance.showIndicator()
         let request = Characters.CharacterList.Request()
         self.interactor?.getCharacters(request: request)
     }

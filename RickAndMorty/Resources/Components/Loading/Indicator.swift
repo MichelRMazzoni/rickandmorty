@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-public class Indicator {
+public class LoadingView {
 
-    public static let sharedInstance = Indicator()
+    public static let sharedInstance = LoadingView()
     var blurImg = UIImageView()
     var indicator = UIActivityIndicatorView()
 

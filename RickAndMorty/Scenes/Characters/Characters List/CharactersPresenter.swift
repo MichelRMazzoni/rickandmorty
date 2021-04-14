@@ -28,7 +28,8 @@ class CharactersPresenter: CharactersPresentationLogic {
                 type: $0.type ?? "",
                 gender: $0.gender ?? "",
                 image: $0.image ?? "",
-                origin: $0.origin?.name ?? ""
+                origin: $0.origin?.name ?? "",
+                firstEpisodeSeen: String($0.episode?.first?.split(separator: "/").last ?? "")
                 )
         }
         let vm = Characters.CharacterList.ViewModel.Success(items: item)
